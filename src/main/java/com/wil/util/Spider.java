@@ -19,11 +19,11 @@ public class Spider {
 
         for (String url : list) {
 
-            Document doc = Jsoup.parse(HttpClientUtil.httpClientGet(url, "UTF-8"));
+            try {
+            Document doc = Jsoup.connect(url).get();
 
             String str = doc.getElementsByClass("list-group-item").text();
             String h1 = doc.getElementsByTag("h1").text();
-            try {
                 FileWriter writer = new FileWriter(fileName,true);
                 writer.write(h1 + ": " + str + "\r\n");
                 writer.close();
