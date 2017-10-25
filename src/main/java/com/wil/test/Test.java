@@ -9,7 +9,7 @@ public class Test {
 
     public static void main(String[] args) {
 
-        Spider.WriteText("d:/a.txt",Spider.getLinkList("中原区",6, 8));
+        Spider.WriteText("d:/a.txt",Spider.getLinkList("金水区",10, 13));
 
     }
 
