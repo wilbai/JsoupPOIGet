@@ -53,7 +53,12 @@ public class Spider {
         for (int i = start; i < end; i++) {
             String url = "http://www.poi86.com/poi/amap/district/"+ area +"/"+ i +".html";
 
-            Document doc = Jsoup.parse(HttpClientUtil.httpClientGet(url, "UTF-8"));
+            Document doc = null;
+            try {
+                doc = Jsoup.connect(url).get();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             Elements elements = doc.getElementsByClass("table table-bordered table-hover");
             Elements elements1 = elements.select("[href]");
